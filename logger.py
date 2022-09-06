@@ -1,4 +1,4 @@
-import main
+debugVar = True
 
 def error(msg):
     if msg == None:
@@ -6,6 +6,6 @@ def error(msg):
     print("\nErro: " + msg)
 
 def debug(msg):
-    if msg == None or main.debugVar == False:
+    if msg == None or debugVar == False:
         return
     print("\nDebug: " + msg)

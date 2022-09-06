@@ -1,5 +1,6 @@
 import tkinter as tk
-import time, main
+import time, main, logger, download
+
 
 def open():
     window = tk.Tk(className="Teste")
@@ -25,11 +26,7 @@ def open():
 def baixarBtn():
     if not list.curselection():
         return
-
     start = time.time()
-    if "mp4" in list.get(list.curselection()):
-        main.downloadManagerMp4(entLink.get())
-    elif "mp3" in list.get(list.curselection()):
-        main.downloadManagerMp3(entLink.get())
+    download.manager(entLink.get(), list.get(list.curselection()))
     end = time.time()
-    print(f"Finalizado em: {end - start}")
+    logger.debug(f"Finalizado em: {end - start}")
